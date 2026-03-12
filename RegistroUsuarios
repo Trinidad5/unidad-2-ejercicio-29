@@ -1,0 +1,187 @@
+package nose;
+
+import java.awt.*;
+import java.awt.EventQueue;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
+public class RegistroUsuarios {
+
+	private JFrame frame;
+	private final JLabel label = new JLabel("Registro de Usuarios");
+	private JTextField txtJuanCarlos;
+	private JTextField txtArcila;
+	private JTextField txtDiaz;
+	private JTextField txtDdmmyyyy;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RegistroUsuarios window = new RegistroUsuarios();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public RegistroUsuarios() {
+		initialize();
+	}
+
+	private void initialize() {
+
+		frame = new JFrame();
+		frame.setBounds(100, 100, 526, 594);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0,255,0));
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new CardLayout(0,0));
+
+		label.setForeground(new Color(255,0,0));
+		label.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		panel.add(label);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0,255,0));
+		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(null);
+
+		JPanel Datos_generales = new JPanel();
+		Datos_generales.setBackground(new Color(128,255,255));
+		Datos_generales.setBounds(10,11,298,302);
+		panel_1.add(Datos_generales);
+		Datos_generales.setBorder(new TitledBorder(null,"Datos Generales",TitledBorder.LEADING,TitledBorder.TOP,null,null));
+		Datos_generales.setLayout(null);
+
+		JLabel lbl1 = new JLabel("Nombres:");
+		lbl1.setBounds(61,31,80,14);
+		Datos_generales.add(lbl1);
+
+		JLabel lbl2 = new JLabel("Apellido Paterno:");
+		lbl2.setBounds(25,67,120,14);
+		Datos_generales.add(lbl2);
+
+		JLabel lbl3 = new JLabel("Apellido Materno:");
+		lbl3.setBounds(25,104,120,14);
+		Datos_generales.add(lbl3);
+
+		txtJuanCarlos = new JTextField("Juan Carlos");
+		txtJuanCarlos.setBounds(150,28,107,20);
+		Datos_generales.add(txtJuanCarlos);
+
+		txtArcila = new JTextField("Arcila");
+		txtArcila.setBounds(150,64,107,20);
+		Datos_generales.add(txtArcila);
+
+		txtDiaz = new JTextField("Diaz");
+		txtDiaz.setBounds(150,101,107,20);
+		Datos_generales.add(txtDiaz);
+
+		JLabel lbl4 = new JLabel("Fecha Nacimiento:");
+		lbl4.setBounds(10,150,130,14);
+		Datos_generales.add(lbl4);
+
+		txtDdmmyyyy = new JTextField("dd/mm/yyyy");
+		txtDdmmyyyy.setBounds(150,147,107,20);
+		Datos_generales.add(txtDdmmyyyy);
+
+		JLabel lblSexo = new JLabel("Sexo:");
+		lblSexo.setBounds(10,186,46,14);
+		Datos_generales.add(lblSexo);
+
+		JRadioButton masculino = new JRadioButton("Masculino");
+		masculino.setBounds(150,182,100,23);
+		Datos_generales.add(masculino);
+
+		JRadioButton femenino = new JRadioButton("Femenino");
+		femenino.setBounds(150,220,100,23);
+		Datos_generales.add(femenino);
+
+		JLabel lblNac = new JLabel("Nacionalidad:");
+		lblNac.setBounds(10,262,100,14);
+		Datos_generales.add(lblNac);
+
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[]{"México","USA","España"}));
+		comboBox.setBounds(150,258,117,22);
+		Datos_generales.add(comboBox);
+
+		JPanel Datos_opcionales = new JPanel();
+		Datos_opcionales.setBackground(new Color(174,52,17));
+		Datos_opcionales.setBounds(10,335,298,175);
+		panel_1.add(Datos_opcionales);
+		Datos_opcionales.setBorder(new TitledBorder(null,"Datos Opcionales",TitledBorder.LEADING,TitledBorder.TOP,null,null));
+		Datos_opcionales.setLayout(null);
+
+		JLabel lblDesc = new JLabel("Descripcion");
+		lblDesc.setBounds(20,24,100,14);
+		Datos_opcionales.add(lblDesc);
+
+		JLabel lblPref = new JLabel("Preferencias");
+		lblPref.setBounds(181,24,100,14);
+		Datos_opcionales.add(lblPref);
+
+		JScrollPane scroll1 = new JScrollPane();
+		scroll1.setBounds(30,51,100,90);
+		Datos_opcionales.add(scroll1);
+
+		JTextArea area1 = new JTextArea();
+		area1.setText("Hola amigos\nGracias por compartir mis videos");
+		scroll1.setViewportView(area1);
+
+		JScrollPane scroll2 = new JScrollPane();
+		scroll2.setBounds(181,62,90,82);
+		Datos_opcionales.add(scroll2);
+
+		JTextArea area2 = new JTextArea();
+		area2.setText("Cantar\nEscuchar musica\nLeer\nDeportes");
+		scroll2.setViewportView(area2);
+
+		JPanel Perfil_usuario = new JPanel();
+		Perfil_usuario.setBounds(336,11,164,302);
+		panel_1.add(Perfil_usuario);
+		Perfil_usuario.setBorder(new TitledBorder(null,"Perfil Del Usuario",TitledBorder.LEADING,TitledBorder.TOP,null,null));
+		Perfil_usuario.setBackground(new Color(255,128,128));
+		Perfil_usuario.setLayout(null);
+
+		JLabel lblFoto = new JLabel("Foto");
+		lblFoto.setBounds(60,20,50,20);
+		Perfil_usuario.add(lblFoto);
+
+		JCheckBox chkFoto = new JCheckBox("Mostrar Foto");
+		chkFoto.setBounds(20,190,120,23);
+		Perfil_usuario.add(chkFoto);
+
+		JCheckBox chkFecha = new JCheckBox("Mostrar Fecha");
+		chkFecha.setBounds(20,230,140,23);
+		Perfil_usuario.add(chkFecha);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/Users/vanessa/Downloads/Perfil-convertido-a-pequeño.jpg"));
+		lblNewLabel.setBounds(36, 48, 92, 118);
+		Perfil_usuario.add(lblNewLabel);
+
+		JPanel panelBotones = new JPanel();
+		panelBotones.setBackground(new Color(0,255,255));
+		panelBotones.setBounds(336,335,164,175);
+		panel_1.add(panelBotones);
+		panelBotones.setLayout(null);
+
+		JButton btnNuevo = new JButton("Nuevo");
+		btnNuevo.setBounds(35,40,90,30);
+		panelBotones.add(btnNuevo);
+
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setBounds(35,80,90,30);
+		panelBotones.add(btnGuardar);
+
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBounds(35,120,90,30);
+		panelBotones.add(btnSalir);
+	}
+}
